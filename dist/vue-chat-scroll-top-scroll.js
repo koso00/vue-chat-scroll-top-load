@@ -15,22 +15,38 @@ var scrollToBottom = function scrollToBottom(el) {
     el.scrollTop = el.scrollHeight;
 };
 
+var emit = function emit(vnode, name, data) {
+    var handlers = vnode.data && vnode.data.on || vnode.componentOptions && vnode.componentOptions.listeners;
+
+    if (handlers && handlers[name]) {
+        handlers[name].fns(data);
+    }
+};
+
 var vChatScroll = {
-    bind: function bind(el, binding) {
+    bind: function bind(el, binding, vnode) {
         var timeout = void 0;
         var scrolled = false;
+        var scrolledTop = false;
 
         el.addEventListener('scroll', function (e) {
             if (timeout) window.clearTimeout(timeout);
             timeout = window.setTimeout(function () {
                 scrolled = el.scrollTop + el.clientHeight + 1 < el.scrollHeight;
+                console.log(el.scrollTop);
+                if (el.scrollTop < 10) {
+                    emit(vnode, 'scroll-top', "123");
+                    scrolledTop = true;
+                }
             }, 200);
         });
 
         new MutationObserver(function (e) {
             var config = binding.value || {};
             var pause = config.always === false && scrolled;
+            if (scrolledTop) return el.scrollTop = 10;
             if (pause || e[e.length - 1].addedNodes.length != 1) return;
+            console.log(pause, scrolled);
             scrollToBottom(el);
         }).observe(el, { childList: true, subtree: true });
     },

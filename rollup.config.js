@@ -3,8 +3,8 @@ import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 
 export default {
-    entry: './src/vue-chat-scroll.js',
-    dest: './dist/vue-chat-scroll.js',
+    entry: './src/vue-chat-scroll-top-scroll.js',
+    dest: './dist/vue-chat-scroll-top-scroll.js',
 
     plugins: [
         resolve(),
