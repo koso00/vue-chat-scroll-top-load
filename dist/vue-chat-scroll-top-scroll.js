@@ -27,7 +27,6 @@ var vChatScroll = {
     bind: function bind(el, binding, vnode) {
         var timeout = void 0;
         var scrolled = false;
-        var scrolledTop = false;
 
         el.addEventListener('scroll', function (e) {
             if (timeout) window.clearTimeout(timeout);
@@ -35,7 +34,6 @@ var vChatScroll = {
                 scrolled = el.scrollTop + el.clientHeight + 1 < el.scrollHeight;
                 if (el.scrollTop < 10) {
                     emit(vnode, 'scroll-top', "123");
-                    scrolledTop = true;
                 }
             }, 200);
         });
@@ -43,7 +41,6 @@ var vChatScroll = {
         new MutationObserver(function (e) {
             var config = binding.value || {};
             var pause = config.always === false && scrolled;
-            if (scrolledTop) return el.scrollTop = 10;
             if (pause || e[e.length - 1].addedNodes.length != 1) return;
             scrollToBottom(el);
         }).observe(el, { childList: true, subtree: true });

@@ -1,6 +1,6 @@
 {
     "name": "vue-chat-scroll-top-scroll",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "description": "Automatic, yet conditional, scroll-to-bottom directive for Vue.js 2.0 with emit scroll-top event when scroll to the top.",
     "main": "dist/vue-chat-scroll-top-scroll.js",
     "scripts": {
