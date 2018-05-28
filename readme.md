@@ -6,24 +6,24 @@ Added new feature when scroll to the top of element , element would emits "scrol
 ## Installation
 
 - #### NPM / Yarn
-  Run `npm install --save vue-chat-scroll-top-load`, or `yarn add vue-chat-scroll-top-load`
+  Run `npm install --save vue-chat-scroll-top-scroll`, or `yarn add vue-chat-scroll-top-load`
 
 - #### With Modules
 
   ``` js
   // ES6
   import Vue from 'vue'
-  import VueChatScroll from 'vue-chat-scroll-top-load'
+  import VueChatScroll from 'vue-chat-scroll-top-scroll'
   Vue.use(VueChatScroll)
 
   // ES5
   var Vue = require('vue')
-  Vue.use(require('vue-chat-scroll-top-load'))
+  Vue.use(require('vue-chat-scroll-top-scroll'))
   ```
 
 - #### `<script>` Include
 
-  Just include `./dist/vue-chat-scroll-top-load.js` after Vue itself.
+  Just include `./dist/vue-chat-scroll-top-scroll.js` after Vue itself.
 
 ## Usage
 
